@@ -5,10 +5,10 @@ import productsData from "../data/productsData";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Import images directly
-import jblImg from "../images/products/jbl660nc-1.png";
-import boatImg from "../images/products/boat131-3.png";
-import sonyImg from "../images/products/sonyXb910n-1.png";
+// Image paths
+const jblImg = "/images/products/jbl660nc-1.png";
+const boatImg = "/images/products/boat131-3.png";
+const sonyImg = "/images/products/sonyXb910n-1.png";
 
 const carouselImages = [jblImg, boatImg, sonyImg];
 

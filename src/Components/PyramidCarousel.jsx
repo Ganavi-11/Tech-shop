@@ -5,12 +5,12 @@ import productsData from "../data/productsData";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-//  Image imports
-import boat255 from "../images/products/boat255r-1.png";
-import jblEndu from "../images/products/jbl-endu-1.png";
-import boat131 from "../images/products/boat131-1.png";
-import boat518 from "../images/products/boat518-1.png";
-import jbl760 from "../images/products/jbl760nc-1.png";
+//  Image paths
+const boat255 = "/images/products/boat255r-1.png";
+const jblEndu = "/images/products/jbl-endu-1.png";
+const boat131 = "/images/products/boat131-1.png";
+const boat518 = "/images/products/boat518-1.png";
+const jbl760 = "/images/products/jbl760nc-1.png";
 
 const imageMap = {
   9: boat255,
