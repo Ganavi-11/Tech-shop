@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './Components/Navbar'
 import Carousel from './Components/Carousel'
+import PyramidCarousel from './Components/PyramidCarousel'
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
       <Navbar />
       <Carousel />
+      <PyramidCarousel />
     </>
   )
 }

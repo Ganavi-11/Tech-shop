@@ -1,1 +1,8 @@
 @import "tailwindcss";
+.slick-dots li.slick-active div {
+  @apply bg-red-800 scale-110;
+}
+
+.slick-dots li.slick-active div {
+  @apply bg-red-500 opacity-100 scale-125;
+}

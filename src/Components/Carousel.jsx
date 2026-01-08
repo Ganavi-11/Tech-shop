@@ -25,15 +25,28 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+
+    // ✅ Tailwind styled dots (VISIBLE)
+    appendDots: dots => (
+      <div className="absolute bottom-6 left-0 w-full z-50">
+        <ul className="flex justify-center gap-3">
+          {dots}
+        </ul>
+      </div>
+    ),
+
+    customPaging: () => (
+      <div className="w-3 h-3 rounded-full bg-gray-400 hover:bg-red-500 transition cursor-pointer" />
+    ),
   };
 
   return (
-    <div className="w-full bg-black overflow-hidden">
+    <div className="relative w-full bg-black">
       <Slider {...settings}>
         {carouselProducts.map((product, index) => (
           <div key={product.id}>
             {/* SLIDE WRAPPER */}
-            <div className="relative min-h-[420px] md:min-h-[520px] flex items-center">
+            <div className="relative min-h-[520px] flex items-center">
 
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
