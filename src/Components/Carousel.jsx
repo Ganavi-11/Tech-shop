@@ -5,7 +5,7 @@ import productsData from "../data/productsData";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// ✅ Import images directly
+// Import images directly
 import jblImg from "../images/products/jbl660nc-1.png";
 import boatImg from "../images/products/boat131-3.png";
 import sonyImg from "../images/products/sonyXb910n-1.png";
@@ -26,7 +26,7 @@ const Carousel = () => {
     slidesToScroll: 1,
     arrows: false,
 
-    // ✅ Tailwind styled dots (VISIBLE)
+    // Tailwind styled dots (
     appendDots: dots => (
       <div className="absolute bottom-6 left-0 w-full z-50">
         <ul className="flex justify-center gap-3">

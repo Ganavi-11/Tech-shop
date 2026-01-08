@@ -41,14 +41,14 @@ const PyramidCarousel = () => {
 
     beforeChange: (_, next) => setActiveSlide(next),
 
-    // ✅ Tailwind styled dots wrapper
+    //  Tailwind styled dots wrapper
     appendDots: dots => (
       <div className="mt-10">
         <ul className="flex justify-center gap-3"> {dots} </ul>
       </div>
     ),
 
-    // ✅ Each dot style
+    // Each dot style
     customPaging: () => (
       <div className="w-2.5 h-2.5 rounded-full bg-gray-500 opacity-60 hover:opacity-100 transition" />
     ),
