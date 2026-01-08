@@ -56,7 +56,7 @@ const PyramidCarousel = () => {
 
   return (
     <div className="w-full bg-black py-20">
-      <h2 className="text-center font-bold text-gray-400 text-2xl mb-16">
+      <h2 className="text-center font-bold text-gray-400 text-2xl my-24">
         Featured Products
       </h2>
 
