@@ -9,10 +9,12 @@ import "slick-carousel/slick/slick-theme.css";
 import Navbar from "./Navbar";
 import Advantages from "./Advantages";
 import Footer from "./Footer";
+import { useCart } from "./CartContext";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   const product = productsData.find((p) => p.id === Number(id));
 
@@ -164,7 +166,13 @@ export default function ProductDetails() {
                 </div>
               </div>
 
-              <button className="w-full bg-red-600 hover:bg-red-700 transition py-3 rounded-md font-medium">
+              <button
+                onClick={() => {
+                  addToCart(product);
+                  navigate("/cart");
+                }}
+                className="w-full bg-red-600 hover:bg-red-700 transition py-3 rounded-md font-medium"
+              >
                 Add to cart
               </button>
             </div>
@@ -286,6 +294,9 @@ function Spec({ label, value }) {
 }
 
 function RelatedCard({ product, onClick }) {
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
+
   return (
     <div
       onClick={onClick}
@@ -313,7 +324,14 @@ function RelatedCard({ product, onClick }) {
           ₹{product.originalPrice.toLocaleString()}
         </span>
       </div>
-      <button className="w-full mt-3 bg-red-600 hover:bg-red-700 text-xs py-2 rounded">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          addToCart(product);
+          navigate("/cart");
+        }}
+        className="w-full mt-3 bg-red-600 hover:bg-red-700 text-xs py-2 rounded"
+      >
         Add to cart
       </button>
     </div>

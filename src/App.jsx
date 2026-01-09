@@ -10,6 +10,7 @@ import Advantages from "./Components/Advantages";
 import Footer from "./Components/Footer";
 import AuthModal from "./Components/AuthModal";
 import ProductDetails from "./Components/ProductDetails";
+import Cart from "./Components/Cart";
 
 function Home({ onLoginClick }) {
   return (
@@ -38,6 +39,9 @@ function App() {
 
         {/* PRODUCT DETAILS PAGE */}
         <Route path="/product/:id" element={<ProductDetails onLoginClick={() => setAuthOpen(true)} />} />
+
+        {/* CART PAGE */}
+        <Route path="/cart" element={<Cart />} />
       </Routes>
 
       {/* Auth Modal (global) */}

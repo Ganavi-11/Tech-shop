@@ -1,8 +1,10 @@
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "./CartContext";
 
 export default function ProductCards({ product }) {
   const navigate = useNavigate();
+  const { addToCart } = useCart();
 
   if (!product || !product.images) return null;
 
@@ -47,7 +49,14 @@ export default function ProductCards({ product }) {
           </span>
         </div>
 
-        <button className="mt-auto bg-red-600 hover:bg-red-700 transition py-2 rounded-md">
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            addToCart(product);
+            navigate("/cart");
+          }}
+          className="mt-auto bg-red-600 hover:bg-red-700 transition py-2 rounded-md"
+        >
           Add to cart
         </button>
       </div>

@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiSearch, FiShoppingCart, FiUser, FiX } from "react-icons/fi";
 
 const Navbar = ({ onLoginClick }) => {
+  const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef(null);
 
-  //  Close search when clicking outside
+  //  Closing search when clicking outside
   useEffect(() => {
     const handler = (e) => {
       if (searchRef.current && !searchRef.current.contains(e.target)) {
@@ -23,7 +25,10 @@ const Navbar = ({ onLoginClick }) => {
       <div className="flex items-center justify-between relative">
 
         {/* Logo */}
-        <div className="text-2xl md:text-3xl font-bold whitespace-nowrap">
+        <div
+          onClick={() => navigate("/")}
+          className="text-2xl md:text-3xl font-bold whitespace-nowrap cursor-pointer"
+        >
           Tech-shop
         </div>
 
@@ -70,7 +75,11 @@ const Navbar = ({ onLoginClick }) => {
 
           {/* Cart */}
           <div className="relative group">
-            <FiShoppingCart className="cursor-pointer" size={22} />
+            <FiShoppingCart
+              onClick={() => navigate('/cart')}
+              className="cursor-pointer"
+              size={22}
+            />
 
             <div className="absolute right-0 mt-4 w-72 bg-[#141414] border border-gray-700 rounded-md p-4 opacity-0 invisible 
                             group-hover:opacity-100 group-hover:visible transition-all duration-200">

@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 import productsData from "../data/productsData";
 
 import "slick-carousel/slick/slick.css";
@@ -13,6 +14,8 @@ const sonyImg = "/images/products/sonyXb910n-1.png";
 const carouselImages = [jblImg, boatImg, sonyImg];
 
 const Carousel = () => {
+  const navigate = useNavigate();
+
   const carouselProducts = productsData.filter(product =>
     [1, 3, 7].includes(product.id)
   );
@@ -83,7 +86,8 @@ const Carousel = () => {
                   <img
                     src={carouselImages[index]}
                     alt={product.title}
-                    className="w-[260px] md:w-[420px] object-contain drop-shadow-2xl"
+                    className="w-[260px] md:w-[420px] object-contain drop-shadow-2xl cursor-pointer"
+                    onClick={() => navigate(`/product/${product.id}`)}
                   />
                 </div>
 

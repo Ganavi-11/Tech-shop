@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 import productsData from "../data/productsData";
 
 import "slick-carousel/slick/slick.css";
@@ -21,6 +22,7 @@ const imageMap = {
 };
 
 const PyramidCarousel = () => {
+  const navigate = useNavigate();
   const [activeSlide, setActiveSlide] = useState(0);
 
   // pick only required products
@@ -92,13 +94,14 @@ const PyramidCarousel = () => {
                 <img
                   src={imageMap[product.id]}
                   alt={product.title}
-                  className={`object-contain m-3 transition-all duration-500
+                  className={`object-contain m-3 transition-all duration-500 cursor-pointer
                     ${
                       isActive
                         ? "h-56 drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                         : "h-40"
                     }
                   `}
+                  onClick={() => navigate(`/product/${product.id}`)}
                 />
 
                 {/* PRICE */}
