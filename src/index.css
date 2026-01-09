@@ -6,3 +6,12 @@
 .slick-dots li.slick-active div {
   @apply bg-red-500 opacity-100 scale-125;
 }
+.slick-dots.custom-dots li button:before {
+  color: #f00;  
+  font-size: 10px;
+  opacity: 1;
+}
+
+.slick-dots.custom-dots li.slick-active button:before {
+  color: #f00;
+}

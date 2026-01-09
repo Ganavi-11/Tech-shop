@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./Components/Navbar";
@@ -8,23 +9,38 @@ import Products from "./Components/Products";
 import Advantages from "./Components/Advantages";
 import Footer from "./Components/Footer";
 import AuthModal from "./Components/AuthModal";
+import ProductDetails from "./Components/ProductDetails";
+
+function Home({ onLoginClick }) {
+  return (
+    <>
+      <Navbar onLoginClick={onLoginClick} />
+      <Carousel />
+      <PyramidCarousel />
+      <Products />
+      <Advantages />
+      <Footer />
+    </>
+  );
+}
 
 function App() {
   const [authOpen, setAuthOpen] = useState(false);
 
   return (
     <>
-      {/* Navbar */}
-      <Navbar onLoginClick={() => setAuthOpen(true)} />
+      <Routes>
+        {/* HOME PAGE */}
+        <Route
+          path="/"
+          element={<Home onLoginClick={() => setAuthOpen(true)} />}
+        />
 
-      {/* Main Content */}
-      <Carousel />
-      <PyramidCarousel />
-      <Products />
-      <Advantages />
-      <Footer />
+        {/* PRODUCT DETAILS PAGE */}
+        <Route path="/product/:id" element={<ProductDetails onLoginClick={() => setAuthOpen(true)} />} />
+      </Routes>
 
-      {/* Auth Modal */}
+      {/* Auth Modal (global) */}
       <AuthModal
         isOpen={authOpen}
         onClose={() => setAuthOpen(false)}
