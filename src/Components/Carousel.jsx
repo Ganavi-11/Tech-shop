@@ -28,8 +28,8 @@ const Carousel = () => {
 
     // Tailwind styled dots (
     appendDots: dots => (
-      <div className="absolute bottom-6 left-0 w-full z-50">
-        <ul className="flex justify-center gap-3">
+      <div className="absolute bottom-6 left-0 w-full z-20">
+        <ul className="flex justify-center gap-1">
           {dots}
         </ul>
       </div>
@@ -46,7 +46,7 @@ const Carousel = () => {
         {carouselProducts.map((product, index) => (
           <div key={product.id}>
             {/* SLIDE WRAPPER */}
-            <div className="relative min-h-[520px] flex items-center">
+            <div className="relative min-h-[800px] flex items-center my-5">
 
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10" />

@@ -23,7 +23,7 @@ export default function Products() {
   return (
     <section className="bg-[#0b0b0b] min-h-screen text-white px-6 py-12">
       {/* Title */}
-      <h2 className="text-center text-2xl font-semibold mb-6 text-gray-400">
+      <h2 className="text-center text-2xl font-bold my-10 text-gray-400">
         Top Products
       </h2>
 

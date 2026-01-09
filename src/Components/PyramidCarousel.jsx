@@ -50,12 +50,12 @@ const PyramidCarousel = () => {
 
     // Each dot style
     customPaging: () => (
-      <div className="w-2.5 h-2.5 rounded-full bg-gray-500 opacity-60 hover:opacity-100 transition" />
+      <div className="w-2.5 h-2.5 rounded-full bg-gray-500 opacity-60 hover:opacity-100 transition mt-10" />
     ),
   };
 
   return (
-    <div className="w-full bg-black py-20">
+    <div className="w-full bg-black py-24">
       <h2 className="text-center font-bold text-gray-400 text-2xl my-24">
         Featured Products
       </h2>
@@ -112,7 +112,7 @@ const PyramidCarousel = () => {
                   `}
                 >
                   ₹{product.finalPrice}
-                  <span className="line-through ml-2 text-gray-500 text-xs">
+                  <span className="line-through ml-5 text-gray-500 text-xs ">
                     ₹{product.originalPrice}
                   </span>
                 </p>
