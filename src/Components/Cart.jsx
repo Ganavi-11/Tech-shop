@@ -61,26 +61,26 @@ const Cart = () => {
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center gap-6 bg-[#111] border border-gray-800 rounded-lg p-4"
+                className="flex items-center gap-20 bg-[#111] border border-gray-800 rounded-lg p-4"
               >
                 {/* IMAGE */}
                 <img
                   src={item.images[0]}
                   alt={item.title}
-                  className="w-24 h-24 object-contain"
+                  className="w-44 h-34 object-contain"
                 />
 
                 {/* INFO */}
                 <div className="flex-1">
-                  <h3 className="text-sm font-medium text-gray-200">
+                  <h3 className="text-xl font-medium text-gray-200">
                     {item.title}
                   </h3>
 
-                  <div className="flex items-center gap-3 mt-1">
+                  <div className="flex items-center gap-3 mt-2">
                     <span className="text-lg font-semibold">
                       ₹{item.finalPrice.toLocaleString()}
                     </span>
-                    <span className="text-sm line-through text-gray-500">
+                    <span className="text-sm line-through text-gray-400">
                       ₹{item.originalPrice.toLocaleString()}
                     </span>
                   </div>
@@ -90,9 +90,9 @@ const Cart = () => {
                     <button
                       onClick={() => updateQty(item.id, item.qty - 1)}
                       disabled={item.qty === 1}
-                      className="px-3 py-1 border border-gray-700 rounded disabled:opacity-40"
+                      className="px-4 py-2 border border-gray-700 rounded disabled:opacity-40"
                     >
-                      –
+                      -
                     </button>
 
                     <span className="text-red-500 font-medium">
@@ -101,7 +101,8 @@ const Cart = () => {
 
                     <button
                       onClick={() => updateQty(item.id, item.qty + 1)}
-                      className="px-3 py-1 border border-gray-700 rounded"
+                      disabled={item.qty === 5}
+                      className="px-4 py-2 border border-gray-700 rounded disabled:opacity-40"
                     >
                       +
                     </button>
@@ -111,9 +112,9 @@ const Cart = () => {
                 {/* DELETE */}
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="text-gray-500 hover:text-red-500"
+                  className="text-red-500 hover:text-red-500 "
                 >
-                  <FaTrash />
+                  <FaTrash size={24} />
                 </button>
               </div>
             ))}

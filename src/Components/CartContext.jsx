@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
   const updateQty = (id, qty) => {
     setCartItems((prev) =>
       prev.map((item) =>
-        item.id === id ? { ...item, qty: Math.max(1, qty) } : item
+        item.id === id ? { ...item, qty: Math.min(5, Math.max(1, qty)) } : item
       )
     );
   };

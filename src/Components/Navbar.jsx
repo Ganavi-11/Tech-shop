@@ -81,14 +81,10 @@ const Navbar = ({ onLoginClick }) => {
               size={22}
             />
 
-            <div className="absolute right-0 mt-4 w-72 bg-[#141414] border border-gray-700 rounded-md p-4 opacity-0 invisible 
+            <div className="absolute right-0 mt-4 w-18  bg-[#141414] border border-gray-700 rounded-md p-1  opacity-0 invisible 
                             group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <p className="font-semibold text-sm mb-1">Your Cart</p>
-              <p className="text-gray-400 text-sm mb-3">No items in cart</p>
-
-              <button className="w-full bg-red-600 hover:bg-red-700 text-sm py-2 rounded">
-                View Cart
-              </button>
+              <p className="font-semibold text-sm mb-1 text-center">Cart</p>
+              
             </div>
           </div>
 
