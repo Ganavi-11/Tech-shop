@@ -1,10 +1,12 @@
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
+import { useState } from "react";
 
 export default function ProductCards({ product }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const [isAdded, setIsAdded] = useState(false);
 
   if (!product || !product.images) return null;
 
@@ -53,11 +55,12 @@ export default function ProductCards({ product }) {
           onClick={(e) => {
             e.stopPropagation();
             addToCart(product);
-            navigate("/cart");
+            setIsAdded(true);
+            setTimeout(() => navigate("/cart"), 1500);
           }}
-          className="mt-auto bg-red-600 hover:bg-red-700 transition py-2 rounded-md"
+          className={`mt-auto transition py-2 rounded-md ${isAdded ? 'bg-green-600 text-white' : 'bg-red-600 hover:bg-red-700'}`}
         >
-          Add to cart
+          {isAdded ? 'Added' : 'Add to cart'}
         </button>
       </div>
     </div>

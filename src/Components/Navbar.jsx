@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiSearch, FiShoppingCart, FiUser, FiX } from "react-icons/fi";
+import { useCart } from "./CartContext";
 
 const Navbar = ({ onLoginClick }) => {
   const navigate = useNavigate();
+  const { cartItems } = useCart();
   const [searchOpen, setSearchOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const searchRef = useRef(null);
@@ -85,11 +87,16 @@ const Navbar = ({ onLoginClick }) => {
               className="cursor-pointer"
               size={22}
             />
+            {cartItems.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                {cartItems.reduce((total, item) => total + item.qty, 0)}
+              </span>
+            )}
 
-            <div className="absolute right-0 mt-1 w-16  bg-[#141414] border border-gray-700 rounded-md p-1  opacity-0 invisible 
+            <div className="absolute right-0 mt-1 w-16  bg-[#141414] border border-gray-700 rounded-md p-1  opacity-0 invisible
                             group-hover:opacity-100 group-hover:visible transition-all duration-200">
               <p className="text-xs text-gray-300 text-center">Cart</p>
-              
+
             </div>
           </div>
 

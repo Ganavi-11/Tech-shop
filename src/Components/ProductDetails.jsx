@@ -20,6 +20,7 @@ export default function ProductDetails() {
 
   const [activeImage, setActiveImage] = useState(product?.images?.[0]);
   const [activeTab, setActiveTab] = useState("specs");
+  const [isAdded, setIsAdded] = useState(false);
 
   // RELATED PRODUCTS BY CATEGORY
   const relatedProducts = useMemo(() => {
@@ -169,11 +170,12 @@ export default function ProductDetails() {
               <button
                 onClick={() => {
                   addToCart(product);
-                  navigate("/cart");
+                  setIsAdded(true);
+                  setTimeout(() => navigate("/cart"), 1500);
                 }}
-                className="w-full bg-red-600 hover:bg-red-700 transition py-3 rounded-md font-medium"
+                className={`w-full transition py-3 rounded-md font-medium ${isAdded ? 'bg-green-600 text-white' : 'bg-red-600 hover:bg-red-700'}`}
               >
-                Add to cart
+                {isAdded ? 'Added' : 'Add to cart'}
               </button>
             </div>
           </div>
