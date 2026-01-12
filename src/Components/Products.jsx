@@ -1,6 +1,7 @@
 import { useState } from "react";
 import productsData from "../data/productsData";
 import ProductCards from "./ProductCards"; 
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   "All",
@@ -11,6 +12,7 @@ const categories = [
 ];
 
 export default function Products() {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredProducts =
@@ -53,7 +55,10 @@ export default function Products() {
         ))}
 
         {/* last card */}
-        <div className="cursor-pointer bg-[#111] rounded-lg border border-gray-800 hover:border-gray-600 transition overflow-hidden flex flex-col justify-center items-center">
+        <div
+          onClick={() => navigate("/all-products")}
+          className="cursor-pointer bg-[#111] rounded-lg border border-gray-800 hover:border-gray-600 transition overflow-hidden flex flex-col justify-center items-center"
+        >
           <div className="text-center text-start">
             <p className="text-gray-400  text-2xl">Browse All</p>
             <p className="text-gray-400 text-2xl">Products →</p>

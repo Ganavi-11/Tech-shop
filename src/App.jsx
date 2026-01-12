@@ -11,6 +11,7 @@ import Footer from "./Components/Footer";
 import AuthModal from "./Components/AuthModal";
 import ProductDetails from "./Components/ProductDetails";
 import Cart from "./Components/Cart";
+import AllProduct from "./Components/AllProduct";
 
 function Home({ onLoginClick }) {
   return (
@@ -42,6 +43,9 @@ function App() {
 
         {/* CART PAGE */}
         <Route path="/cart" element={<Cart />} />
+
+        {/* ALL PRODUCTS PAGE */}
+        <Route path="/all-products" element={<AllProduct onLoginClick={() => setAuthOpen(true)} />} />
       </Routes>
 
       {/* Auth Modal (global) */}
