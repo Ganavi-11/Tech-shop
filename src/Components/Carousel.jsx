@@ -76,7 +76,7 @@ const Carousel = () => {
                     </span>
                   </div>
 
-                  <button className="bg-red-600 hover:bg-red-700 transition px-7 py-3 rounded font-semibold w-fit mx-auto md:mx-0">
+                  <button className="bg-red-600 hover:bg-red-700 transition px-7 py-3 rounded font-semibold w-fit mx-auto md:mx-0  cursor-pointer" onClick={() => navigate(`/product/${product.id}`)}>
                     Shop Now
                   </button>
                 </div>
@@ -86,8 +86,7 @@ const Carousel = () => {
                   <img
                     src={carouselImages[index]}
                     alt={product.title}
-                    className="w-[260px] md:w-[420px] object-contain drop-shadow-2xl cursor-pointer"
-                    onClick={() => navigate(`/product/${product.id}`)}
+                    className="w-[260px] md:w-[420px] object-contain drop-shadow-2xl "
                   />
                 </div>
 

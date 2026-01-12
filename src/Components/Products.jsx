@@ -51,6 +51,14 @@ export default function Products() {
         {filteredProducts.map((product) => (
           <ProductCards key={product.id} product={product} />
         ))}
+
+        {/* last card */}
+        <div className="cursor-pointer bg-[#111] rounded-lg border border-gray-800 hover:border-gray-600 transition overflow-hidden flex flex-col justify-center items-center">
+          <div className="text-center text-start">
+            <p className="text-gray-400  text-2xl">Browse All</p>
+            <p className="text-gray-400 text-2xl">Products →</p>
+          </div>
+        </div>
       </div>
     </section>
   );

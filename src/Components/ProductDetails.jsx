@@ -61,7 +61,7 @@ export default function ProductDetails() {
         <div className="max-w-7xl mx-auto space-y-14">
 
           {/* ================= TOP SECTION ================= */}
-          <div className="flex flex-col md:flex-row gap-6 lg:gap-10 items-center">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center">
 
             {/* THUMBNAILS */}
             <div className="
@@ -145,7 +145,7 @@ export default function ProductDetails() {
                 <p className="text-xs text-gray-500">(Inclusive of all taxes)</p>
               </div>
 
-              <div className="inline-flex items-center gap-2 bg-green-700/20 text-green-400 px-3 py-1 rounded text-xs w-fit">
+              <div className="inline-flex items-center gap-2 bg-green-700/20 text-white-400 px-3 py-1 rounded text-xs w-fit">
                 ✔ In Stock
               </div>
 

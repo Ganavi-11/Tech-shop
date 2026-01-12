@@ -5,13 +5,18 @@ import { FiSearch, FiShoppingCart, FiUser, FiX } from "react-icons/fi";
 const Navbar = ({ onLoginClick }) => {
   const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const searchRef = useRef(null);
+  const userRef = useRef(null);
 
   //  Closing search when clicking outside
   useEffect(() => {
     const handler = (e) => {
       if (searchRef.current && !searchRef.current.contains(e.target)) {
         setSearchOpen(false);
+      }
+      if (userRef.current && !userRef.current.contains(e.target)) {
+        setUserMenuOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -81,35 +86,43 @@ const Navbar = ({ onLoginClick }) => {
               size={22}
             />
 
-            <div className="absolute right-0 mt-4 w-18  bg-[#141414] border border-gray-700 rounded-md p-1  opacity-0 invisible 
+            <div className="absolute right-0 mt-1 w-16  bg-[#141414] border border-gray-700 rounded-md p-1  opacity-0 invisible 
                             group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <p className="font-semibold text-sm mb-1 text-center">Cart</p>
+              <p className="text-xs text-gray-300 text-center">Cart</p>
               
             </div>
           </div>
 
           {/*  User */}
-          <div className="relative group">
-            <FiUser className="cursor-pointer" size={22} />
+          <div className="relative" ref={userRef}>
+            <FiUser
+              onClick={() => setUserMenuOpen(!userMenuOpen)}
+              className="cursor-pointer"
+              size={22}
+            />
 
-            <div className="absolute right-0 mt-4 w-72 bg-[#141414] border border-gray-700 rounded-md p-4 opacity-0 invisible 
-                            group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <p className="font-semibold text-sm mb-1">Hello!</p>
-              <p className="text-gray-400 text-sm mb-3">
-                Access account and manage orders
-              </p>
+            {userMenuOpen && (
+              <div className="absolute right-0 mt-4 w-72 bg-[#141414] border border-gray-700 rounded-md p-4">
+                <p className="font-semibold text-sm mb-1">Hello!</p>
+                <p className="text-gray-400 text-sm mb-3">
+                  Access account and manage orders
+                </p>
 
-              <button
-                onClick={onLoginClick}
-                className="w-full border border-gray-600 hover:border-red-500 text-sm py-2 rounded mb-2"
-              >
-                Login / Signup
-              </button>
+                <button
+                  onClick={() => {
+                    onLoginClick();
+                    setUserMenuOpen(false);
+                  }}
+                  className="w-full border border-gray-600 hover:border-red-500 text-sm py-2 rounded mb-2"
+                >
+                  Login / Signup
+                </button>
 
-              <p className="text-xs text-gray-500 text-center">
-                Please Login
-              </p>
-            </div>
+                <p className="text-xs text-gray-500 text-center">
+                  Please Login
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
