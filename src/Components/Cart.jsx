@@ -5,7 +5,7 @@ import { FaShoppingCart, FaTrash } from "react-icons/fa";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Cart = () => {
+const Cart = ({ onLoginClick }) => {
   const { cartItems, removeFromCart, updateQty } = useCart();
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ const Cart = () => {
   if (cartItems.length === 0) {
     return (
       <>
-        <Navbar />
+        <Navbar onLoginClick={onLoginClick} />
         <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center gap-4">
 
           <div className="border-2 border-red-600 rounded-full p-14 mb-5">
@@ -52,7 +52,7 @@ const Cart = () => {
   /* ================= CART WITH ITEMS ================= */
   return (
     <>
-      <Navbar />
+      <Navbar onLoginClick={onLoginClick} />
       <div className="min-h-screen bg-[#0b0b0b] text-white px-6 py-24">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
 

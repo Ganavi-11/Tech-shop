@@ -11,7 +11,7 @@ import Advantages from "./Advantages";
 import Footer from "./Footer";
 import { useCart } from "./CartContext";
 
-export default function ProductDetails() {
+export default function ProductDetails({ onLoginClick }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
@@ -57,7 +57,7 @@ export default function ProductDetails() {
 
   return (
     <>
-      <Navbar />
+      <Navbar onLoginClick={onLoginClick} />
       <section className="bg-[#0b0b0b] min-h-screen text-white px-4 py-12  mt-15">
         <div className="max-w-7xl mx-auto space-y-14">
 

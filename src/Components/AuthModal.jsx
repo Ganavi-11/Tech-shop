@@ -9,10 +9,10 @@ export default function AuthModal({ isOpen, onClose }) {
   return (
     <>
       {/* Backdrop */}
-      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40" />
+      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-60" />
 
       {/* Modal */}
-      <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="fixed inset-0 flex items-center justify-center z-70">
         <div className="w-[380px] bg-[#111] text-white rounded-lg shadow-xl p-6 relative">
           {/* Close Button */}
           <button

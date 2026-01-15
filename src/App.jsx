@@ -42,7 +42,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails onLoginClick={() => setAuthOpen(true)} />} />
 
         {/* CART PAGE */}
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart onLoginClick={() => setAuthOpen(true)} />} />
 
         {/* ALL PRODUCTS PAGE */}
         <Route path="/all-products" element={<AllProduct onLoginClick={() => setAuthOpen(true)} />} />
