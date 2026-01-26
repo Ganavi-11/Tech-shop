@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Slider from "react-slick";
 import productsData from "../data/productsData";
 import reviewsData from "../data/reviewsData";
@@ -21,6 +21,10 @@ export default function ProductDetails({ onLoginClick }) {
   const [activeImage, setActiveImage] = useState(product?.images?.[0]);
   const [activeTab, setActiveTab] = useState("specs");
   const [isAdded, setIsAdded] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // RELATED PRODUCTS BY CATEGORY
   const relatedProducts = useMemo(() => {

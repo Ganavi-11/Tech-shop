@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import productsData from "../data/productsData";
 import ProductCards from "./ProductCards";
 import Navbar from "./Navbar";
@@ -15,6 +15,10 @@ export default function AllProduct({ onLoginClick }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [price, setPrice] = useState(20000);
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // ---------------- HANDLERS ----------------
   const toggleBrand = (brand) => {
@@ -75,7 +79,7 @@ export default function AllProduct({ onLoginClick }) {
 
       <section className="bg-[#0b0b0b] min-h-screen text-white px-4 md:px-6 py-12 pt-24">
         {/* MOBILE FILTER BUTTON */}
-        <div className="md:hidden flex justify-end mb-4">
+        <div className="lg:hidden flex justify-end mb-4">
           <button
             onClick={() => setMobileFilterOpen(true)}
             className="flex items-center gap-2 bg-red-600 px-4 py-2 rounded text-sm"

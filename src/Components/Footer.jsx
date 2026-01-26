@@ -36,9 +36,9 @@ const Footer = () => {
             <ul className="space-y-2 text-m">
               {section.menu.map((item) => (
                 <li key={item.id}>
-                  <a href={item.path} className="hover:underline">
+                  <p  className="hover:underline">
                     {item.link}
-                  </a>
+                  </p>
                 </li>
               ))}
             </ul>

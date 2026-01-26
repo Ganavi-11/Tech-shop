@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaTrash } from "react-icons/fa";
@@ -8,6 +8,10 @@ import Footer from "./Footer";
 const Cart = ({ onLoginClick }) => {
   const { cartItems, removeFromCart, updateQty } = useCart();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // PRICE CALCULATIONS
   const originalPrice = cartItems.reduce(
@@ -61,23 +65,28 @@ const Cart = ({ onLoginClick }) => {
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center gap-20 bg-[#111] border border-gray-800 rounded-lg p-4"
+                className="
+               flex flex-col sm:flex-row
+                  sm:items-center
+                  gap-4 sm:gap-8
+                     bg-[#111] border border-gray-800 rounded-lg p-3
+                     "
               >
                 {/* IMAGE */}
                 <img
                   src={item.images[0]}
                   alt={item.title}
-                  className="w-44 h-34 object-contain"
+                  className="w-24 h-24 sm:w-28 sm:h-28 object-contain mx-auto sm:mx-0"
                 />
 
                 {/* INFO */}
                 <div className="flex-1">
-                  <h3 className="text-xl font-medium text-gray-200">
+                  <h3 className="text-base sm:text-xl font-medium text-gray-200">
                     {item.title}
                   </h3>
 
-                  <div className="flex items-center gap-3 mt-2">
-                    <span className="text-lg font-semibold">
+                  <div className="flex items-center gap-3 mt-1 sm:mt-2">
+                    <span className="text-base sm:text-lg font-semibold">
                       ₹{item.finalPrice.toLocaleString()}
                     </span>
                     <span className="text-sm line-through text-gray-400">
@@ -90,19 +99,17 @@ const Cart = ({ onLoginClick }) => {
                     <button
                       onClick={() => updateQty(item.id, item.qty - 1)}
                       disabled={item.qty === 1}
-                      className="px-4 py-2 border border-gray-700 rounded disabled:opacity-40"
+                      className="px-3 py-1 border border-gray-700 rounded disabled:opacity-40"
                     >
                       -
                     </button>
 
-                    <span className="text-red-500 font-medium">
-                      {item.qty}
-                    </span>
+                    <span className="text-red-500 font-medium">{item.qty}</span>
 
                     <button
                       onClick={() => updateQty(item.id, item.qty + 1)}
                       disabled={item.qty === 5}
-                      className="px-4 py-2 border border-gray-700 rounded disabled:opacity-40"
+                      className="px-3 py-1 border border-gray-700 rounded disabled:opacity-40"
                     >
                       +
                     </button>
@@ -112,11 +119,12 @@ const Cart = ({ onLoginClick }) => {
                 {/* DELETE */}
                 <button
                   onClick={() => removeFromCart(item.id)}
-                  className="text-red-500 hover:text-red-500 "
+                  className="self-end sm:self-auto text-red-500"
                 >
-                  <FaTrash size={24} />
+                  <FaTrash size={20} />
                 </button>
               </div>
+
             ))}
           </div>
 
