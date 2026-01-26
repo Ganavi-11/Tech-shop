@@ -28,6 +28,7 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    pauseOnFocus: true,
 
     // Tailwind styled dots (
     appendDots: dots => (
